@@ -1,0 +1,38 @@
+http:
+  port: 8080
+admin:
+  port: 9876
+  host: localhost
+apiEndpoints:
+  user:
+    host: localhost
+    paths: '/api/v1/user/*'
+serviceEndpoints:
+  userService:
+    url: 'http://localhost:7000'
+policies:
+  - basic-auth
+  - cors
+  - expression
+  - key-auth
+  - log
+  - oauth2
+  - proxy
+  - rate-limit
+pipelines:
+  default:
+    apiEndpoints:
+      - user
+    policies:
+      - cors:
+          - action:
+              origin: "*"
+              methods: "POST"
+              credentials: true
+              maxAge: 600
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: userService 
+              changeOrigin: true
