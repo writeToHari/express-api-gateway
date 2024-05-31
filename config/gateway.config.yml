@@ -1,9 +1,7 @@
 http:
   port: 8080
 https:
-  port: 9000
-admin:
-  port: 9876
+  port: 8080
   host: user-modue.onrender.com
 apiEndpoints:
   user:
