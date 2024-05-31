@@ -2,14 +2,14 @@ http:
   port: 8080
 admin:
   port: 9876
-  host: localhost
+  host: user-modue.onrender.com
 apiEndpoints:
   user:
-    host: localhost
+    host: user-modue.onrender.com
     paths: '/api/v1/user/*'
 serviceEndpoints:
   userService:
-    url: 'http://localhost:7000'
+    url: 'https://user-modue.onrender.com'
 policies:
   - basic-auth
   - cors
